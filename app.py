@@ -5,16 +5,14 @@ import os
 from functions.encryption import encrypt_image
 from functions.decryption import decrypt_image
 
-# Load the image
-def load_image(path):
-    return Image.open(path)
 
-
-# # Streamlit app layout
-# st.title("SecurePIX")
-
+st.set_page_config(
+    page_title="SecurePIX - Image Encryption and Decryption", 
+    page_icon="logo.svg", 
+    layout="centered"
+)
 # Add a logo at the top of the app
-logo_path = "logo.svg"  # Replace this with the correct path to your logo
+logo_path = "branding.svg"  # Replace this with the correct path to your logo
 st.image(logo_path, width=200)
 
 # st.markdown(
