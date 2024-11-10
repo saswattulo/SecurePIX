@@ -1,11 +1,9 @@
 import streamlit as st
 import numpy as np
-from PIL import Image, PngImagePlugin
-import random
-import io
+from PIL import Image
 import os
-from functions.encryption import color_transform, scramble_image, encrypt_image
-from functions.decryption import reverse_color_transform, unscramble_image, decrypt_image
+from functions.encryption import encrypt_image
+from functions.decryption import decrypt_image
 
 # Load the image
 def load_image(path):

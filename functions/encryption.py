@@ -3,7 +3,6 @@ import numpy as np
 from PIL import Image, PngImagePlugin
 import random
 import io
-import os
 
 
 def scramble_image(image, grid_size=8):

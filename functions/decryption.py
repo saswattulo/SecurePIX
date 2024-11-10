@@ -1,9 +1,7 @@
 import streamlit as st
 import numpy as np
-from PIL import Image, PngImagePlugin
-import random
+from PIL import Image
 import io
-import os
 
 
 
