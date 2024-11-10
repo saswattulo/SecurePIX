@@ -20,6 +20,10 @@ st.image(logo_path, width=200)
 #     "Upload an image to encrypt, then download the encrypted image with embedded metadata for decryption."
 # )
 
+# Load the image
+def load_image(path):
+    return Image.open(path)
+
 # Layout for encryption and decryption side by side with spacing
 col1, _, col2 = st.columns([1, 0.5, 1])  # Two columns with equal width
 
