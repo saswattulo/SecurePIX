@@ -1,8 +1,8 @@
-# PixGuard
+# SecurePIX
 
 ## Overview
 
-PixGuard is an image encryption and decryption tool that allows users to protect their images by applying a combination of color transformation and grid scrambling. The app uses simple algorithms to scramble image sections and apply a color offset to securely encrypt the image. It also allows the user to decrypt the image back to its original form using the pattern key and color offset embedded in the image's metadata.
+SecurePIX is an image encryption and decryption tool that allows users to protect their images by applying a combination of color transformation and grid scrambling. The app uses simple algorithms to scramble image sections and apply a color offset to securely encrypt the image. It also allows the user to decrypt the image back to its original form using the pattern key and color offset embedded in the image's metadata.
 
 ## Features
 
@@ -31,11 +31,11 @@ To run this project locally, follow these steps:
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/yourusername/PixGuard.git
+    git clone https://github.com/yourusername/SecurePIX.git
     ```
 2. Navigate into the project directory:
     ```bash
-    cd PixGuard
+    cd SecurePIX
     ```
 3. Install the required dependencies:
     ```bash
@@ -63,5 +63,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Thank you for checking out PixGuard! If you enjoy the tool, feel free to buy me a coffee ☕ to support my work. Cheers!
+Thank you for checking out SecurePIX! If you enjoy the tool, feel free to buy me a coffee ☕ to support my work. Cheers!
 
