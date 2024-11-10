@@ -5,24 +5,15 @@ import random
 import io
 import os
 
-
 st.set_page_config(
     page_title="SecurePIX - Image Encryption and Decryption", 
     page_icon="logo.svg", 
     layout="centered"
 )
+
 # Add a logo at the top of the app
 logo_path = "branding.svg"  # Replace this with the correct path to your logo
 st.image(logo_path, width=200)
-
-
-# Load the image
-def load_image(path):
-    return Image.open(path)
-
-# Layout for encryption and decryption side by side with spacing
-col1, _, col2 = st.columns([1, 0.5, 1])  # Two columns with equal width
-
 
 # Load the image
 def load_image(path):
@@ -99,8 +90,8 @@ def decrypt_image(encrypted_image):
     color_offset_str = encrypted_image.info.get("color_offset")
 
     if not pattern_key_str or not color_offset_str:
-        st.error("Image metadata for decryption not found.")
-        return None
+        st.error("Image metadata for decryption not found. Please ensure the image is properly encrypted.")
+        return None, None  # Return a tuple of None values
 
     pattern_key = [(int(x.split(",")[0]), int(x.split(",")[1])) for x in pattern_key_str.split("_")]
     color_offset = tuple(map(int, color_offset_str.split(",")))
@@ -114,16 +105,10 @@ def decrypt_image(encrypted_image):
     
     return decrypted_image, decrypted_image_bytes
 
-# Streamlit app layout
-st.title("Secure Image Encryption & Decryption System")
 
-st.markdown(
-    "This application provides a secure way to encrypt and decrypt images using a grid-based scrambling method and color transformations. "
-    "Upload an image to encrypt, then download the encrypted image with embedded metadata for decryption."
-)
 
 # Layout for encryption and decryption side by side with spacing
-col1,_,col2 = st.columns([1,0.5,1])  # Two columns with equal width
+col1, _, col2 = st.columns([1, 0.5, 1])  # Two columns with equal width
 
 # Encryption Section
 with col1:
@@ -152,21 +137,27 @@ with col1:
                 st.info("Encrypted image closed from memory after download.")
 
 # Decryption Section
+# Handle Image Decryption
 with col2:
     st.header("🔓 Decrypt an Image")
     encrypted_image_file = st.file_uploader("Upload an encrypted image to decrypt", type=["png"], key="decrypt")
 
     if encrypted_image_file:
-        encrypted_image = load_image(encrypted_image_file)
+        encrypted_image = Image.open(encrypted_image_file)
         st.image(encrypted_image, caption="Encrypted Image", use_container_width=True)
         original_name = os.path.splitext(encrypted_image_file.name.replace("encrypted_", ""))[0]
 
         if st.button("Decrypt Image"):
             decrypted_image, decrypted_image_bytes = decrypt_image(encrypted_image)
-            if decrypted_image:
+
+            # Simulate a popup using expander
+            if decrypted_image is None or decrypted_image_bytes is None:
+                with st.expander("❌ Decryption Failed - Metadata Not Found", expanded=True):
+                    st.error("Image metadata for decryption not found. Please ensure the image is properly encrypted.")
+            else:
                 st.image(decrypted_image, caption="Decrypted Image", use_container_width=True)
 
-                # Download button for decrypted image
+                # Decrypt download button
                 decrypt_download_button = st.download_button(
                     "Download Decrypted Image",
                     data=decrypted_image_bytes,
@@ -178,3 +169,5 @@ with col2:
                 if decrypt_download_button:
                     decrypted_image_bytes = None
                     st.info("Decrypted image closed from memory after download.")
+
+
