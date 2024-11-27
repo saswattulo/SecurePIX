@@ -7,12 +7,12 @@ import os
 
 st.set_page_config(
     page_title="SecurePIX - Image Encryption and Decryption", 
-    page_icon="static/logo.svg", 
+    page_icon="logo.svg", 
     layout="centered"
 )
 
 # Add a logo at the top of the app
-logo_path = "static/branding.svg"  # Replace this with the correct path to your logo
+logo_path = "branding.svg"  # Replace this with the correct path to your logo
 st.image(logo_path, width=200)
 
 # Load the image
