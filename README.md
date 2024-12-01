@@ -31,7 +31,7 @@ To run this project locally, follow these steps:
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/yourusername/SecurePIX.git
+    git clone https://github.com/saswattulo/SecurePIX.git
     ```
 2. Navigate into the project directory:
     ```bash
