@@ -34,7 +34,7 @@ def load_image(path):
 
 
 # Scramble the image
-def scramble_image(image, grid_size=16):
+def scramble_image(image, grid_size):
     width, height = image.size
     pixels = np.array(image)
     scrambled_pixels = np.zeros_like(pixels)
@@ -66,7 +66,7 @@ def color_transform(image, offset=(100, 50, 150)):
 
 
 # Encrypt the image (scramble + color transform)
-def encrypt_image(image, grid_size=8):
+def encrypt_image(image, grid_size=16):
     scrambled_image, pattern_key = scramble_image(image, grid_size)
     encrypted_image, color_offset = color_transform(scrambled_image)
 
@@ -128,7 +128,7 @@ def decrypt_image(encrypted_image):
     color_offset = tuple(map(int, color_offset_str.split(",")))
 
     decrypted_color_image = reverse_color_transform(encrypted_image, color_offset)
-    decrypted_image = unscramble_image(decrypted_color_image, pattern_key, grid_size=8)
+    decrypted_image = unscramble_image(decrypted_color_image, pattern_key, grid_size=16)
 
     decrypted_image_bytes = io.BytesIO()
     decrypted_image.save(decrypted_image_bytes, format="PNG")
