@@ -34,7 +34,7 @@ def load_image(path):
 
 
 # Scramble the image
-def scramble_image(image, grid_size=8):
+def scramble_image(image, grid_size=16):
     width, height = image.size
     pixels = np.array(image)
     scrambled_pixels = np.zeros_like(pixels)
