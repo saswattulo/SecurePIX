@@ -13,14 +13,14 @@ st.set_page_config(
 
 # Add CSS to hide Streamlit's nav bar and footer
 # Add CSS to hide Streamlit's nav bar, deploy button, and footer
-hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden; display: none;} /* Hide the main menu (hamburger) */
-    footer {visibility: hidden; display: none;}    /* Hide the footer */
-    header {visibility: hidden; display: none;}    /* Hide the header with the deploy button */
-    </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# hide_streamlit_style = """
+#     <style>
+#     #MainMenu {visibility: hidden; display: none;} /* Hide the main menu (hamburger) */
+#     footer {visibility: hidden; display: none;}    /* Hide the footer */
+#     header {visibility: hidden; display: none;}    /* Hide the header with the deploy button */
+#     </style>
+# """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 # Add a logo at the top of the app
@@ -173,7 +173,9 @@ with col1:
 with col2:
     st.header("🔓 Decrypt an Image")
     encrypted_image_file = st.file_uploader(
-        "Upload an encrypted image to decrypt", type=["png"], key="decrypt"
+        "Upload an encrypted image to decrypt",
+        type=["png", "jpg", "jpeg"],
+        key="decrypt",
     )
 
     if encrypted_image_file:
