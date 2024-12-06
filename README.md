@@ -2,7 +2,7 @@
 
 ## Overview
 
-SecurePIX is an image encryption and decryption tool that allows users to protect their images by applying a combination of color transformation and grid scrambling. The app uses simple algorithms to scramble image sections and apply a color offset to securely encrypt the image. It also allows the user to decrypt the image back to its original form using the pattern key and color offset embedded in the image's metadata.
+SecurePIX is an image encryption and decryption tool that allows users to protect their images by applying a combination of color transformation and grid scrambling. The app uses simple algorithms to scramble image sections and apply a color offset to securely encrypt the image.
 
 ## Features
 
