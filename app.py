@@ -20,29 +20,19 @@ st.set_page_config(
 #     header {visibility: hidden; display: none;}    /* Hide the header with the deploy button */
 #     </style>
 # """
-# hide_streamlit_style = """
-#     <style>
-#     #MainMenu {visibility: hidden; display: none;}
-#     footer {visibility: hidden; display: none;}
-#     header {visibility: hidden; display: none;}
-#     footer:after {
-#         content:''; 
-#         visibility: hidden;
-#         display: none;
-#     }
-#     .stApp {
-#         margin-top: -80px;
-#     }
-#     </style>
-# """
 hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
+    <style>
+    #MainMenu {visibility: hidden; display: none;}
+    footer {visibility: hidden; display: none;}
+    header {visibility: hidden; display: none;}
+    ._container_gzau3_1 {display: none !important;}
+    ._profileContainer_gzau3_53 {display: none !important;}
+    ._viewerBadge_nim44_23 {display: none !important;}
+    [data-testid="appCreatorAvatar"] {display: none !important;}
+    </style>
+"""
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 
 # Add a logo at the top of the app
