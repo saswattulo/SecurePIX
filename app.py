@@ -25,10 +25,48 @@ hide_streamlit_style = """
     #MainMenu {visibility: hidden; display: none;}
     footer {visibility: hidden; display: none;}
     header {visibility: hidden; display: none;}
-    ._container_gzau3_1 {display: none !important;}
-    ._profileContainer_gzau3_53 {display: none !important;}
-    ._viewerBadge_nim44_23 {display: none !important;}
-    [data-testid="appCreatorAvatar"] {display: none !important;}
+    
+    /* Hide Streamlit Cloud badge and profile container */
+    ._container_gzau3_1,
+    ._viewerBadge_nim44_23,
+    ._link_gzau3_10,
+    ._profileContainer_gzau3_53,
+    ._profilePreview_gzau3_63,
+    ._profileImage_gzau3_78,
+    [data-testid="appCreatorAvatar"] {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: -1 !important;
+    }
+    
+    /* Additional selectors to catch parent elements */
+    a[href*="streamlit.io/cloud"],
+    a[href*="share.streamlit.io/user"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Hide any SVG elements within these containers */
+    ._container_gzau3_1 svg,
+    ._link_gzau3_10 svg {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Remove any remaining space */
+    .element-container:has(._container_gzau3_1),
+    .element-container:has(._profileContainer_gzau3_53) {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+    }
     </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
